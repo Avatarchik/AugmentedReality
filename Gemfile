@@ -12,10 +12,13 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'ffi'
 gem 'carrierwave'
 gem 'bootstrap-sass'
+gem 'sidekiq'
+gem 'sinatra', require: false
+gem 'slim'
+gem 'responders'
 
 group :development, :test do
   gem 'pry'
   gem 'web-console', '~> 2.0'
   gem 'spring'
 end
-

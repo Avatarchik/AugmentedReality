@@ -11,7 +11,8 @@ class MarkersController < ApplicationController
     @marker = Marker.new(marker_params)
 
     if @marker.save
-      redirect_to markers_path, notice: "The marker #{@marker.name} has been uploaded."
+      GentexdataWorker.perform_async(@marker.id)
+      redirect_to markers_path, notice: "The marker #{@marker.name} has been created."
     else
       render "new"
     end
