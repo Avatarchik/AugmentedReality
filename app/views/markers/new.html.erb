@@ -1,0 +1,20 @@
+<% if !@marker.errors.empty? %>
+  <div class="alert alert-error">
+    <ul>
+      <% @marker.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<div class="well">
+  <%= form_for @marker, html: { multipart: true } do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name, class: 'form-control' %>
+    <%= f.label :image %>
+    <%= f.file_field :image %>
+    <br>
+    <%= f.submit "Save", class: "btn btn-primary" %>
+  <% end %>
+</div>

@@ -1,0 +1,27 @@
+<% if !flash[:notice].blank? %>
+  <div class="alert alert-info">
+  <%= flash[:notice] %>
+  </div>
+<% end %>
+<br />
+<%= link_to "New marker", new_marker_path, class: "btn btn-primary" %>
+<br />
+<br />
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Image</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @markers.each do |marker| %>
+      <tr>
+        <td><%= marker.id %></td>
+        <td><%= marker.name %></td>
+        <td><%= image_tag marker.image, size: '120x150' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
