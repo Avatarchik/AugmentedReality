@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160129010018) do
+ActiveRecord::Schema.define(version: 20160220145656) do
 
   create_table "markers", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -19,6 +19,12 @@ ActiveRecord::Schema.define(version: 20160129010018) do
     t.string   "iset",       limit: 255
     t.string   "fset",       limit: 255
     t.string   "fset3",      limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "pictures", force: :cascade do |t|
+    t.string   "file",       limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
