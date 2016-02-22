@@ -19,6 +19,9 @@ class MarkersController < ApplicationController
   end
 
   def destroy
+    @marker = Marker.find params[:id]
+    @marker.destroy
+    redirect_to markers_path
   end
 
   def show

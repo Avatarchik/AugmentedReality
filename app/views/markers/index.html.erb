@@ -16,6 +16,7 @@
       <th>Iset</th>
       <th>Fset</th>
       <th>Fset3</th>
+      <th>Delete</th>
     </tr>
   </thead>
   <tbody>
@@ -27,6 +28,8 @@
         <td><%= marker.iset_url %></td>
         <td><%= marker.fset_url %></td>
         <td><%= marker.fset3_url %></td>
+        <td><%= link_to "Delete", marker_path(marker), method: :delete, class: "btn btn-primary" %></td>
+
       </tr>
     <% end %>
   </tbody>
