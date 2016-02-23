@@ -17,6 +17,9 @@ gem 'sinatra', require: false
 gem 'slim'
 gem 'responders'
 gem 'active_model_serializers'
+gem 'devise'
+gem 'cancancan'
+gem 'rolify'
 
 group :development, :test do
   gem 'pry'

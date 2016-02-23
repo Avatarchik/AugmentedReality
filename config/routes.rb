@@ -3,6 +3,7 @@ require 'api_constraints'
 
 Rails.application.routes.draw do
 
+  devise_for :users
   root 'markers#index'
   resources :markers
   mount Sidekiq::Web, at: "/sidekiq"

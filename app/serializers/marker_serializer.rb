@@ -1,5 +1,5 @@
 class MarkerSerializer < ActiveModel::Serializer
-  attributes :id, :image, :fset, :fset3, :iset
+  attributes :id, :name, :image, :fset, :fset3, :iset
 
   def image
     self.object.image_url
