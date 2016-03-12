@@ -1,0 +1,28 @@
+<% if !flash[:notice].blank? %>
+  <div class="alert alert-info">
+  <%= flash[:notice] %>
+  </div>
+<% end %>
+<br />
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Reg token</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.id %></td>
+        <td><%= user.name %></td>
+        <td><%= user.email %></td>
+        <td><%= user.reg_token %></td>
+        <td><%= link_to "Delete", "", method: :delete, class: "btn btn-primary" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
