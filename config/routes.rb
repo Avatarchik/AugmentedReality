@@ -16,6 +16,7 @@ Rails.application.routes.draw do
       resources :markers, only: [:show, :index, :create]
       resources :registers, only: :create
       resources :logins, only: :create
+      resources :gcms, only: :create
     end
   end
 end

@@ -16,7 +16,7 @@ class GentexdataWorker
     marker.fset3 = Rails.root.join(fset3).open
 
     marker.save!
-
+    
     File.delete(Rails.root.join(iset))
     File.delete(Rails.root.join(fset))
     File.delete(Rails.root.join(fset3))
