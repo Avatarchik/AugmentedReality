@@ -7,8 +7,8 @@ Rails.application.routes.draw do
 
   devise_for :users, path: :accounts
   root 'markers#index'
-  resources :markers, only: [:index, :new, :create]
   resources :users, only: :index
+  resources :markers, only: [:index, :new, :create]
   mount Sidekiq::Web, at: "/sidekiq"
 
   namespace :api, defaults: { format: :json } do
