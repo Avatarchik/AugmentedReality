@@ -7,7 +7,7 @@ class Api::V1::MarkersController < ApplicationController
   end
 
   def show
-    respond_with Marker.find_by id: params[:id]
+    @marker = Marker.find_by id: params[:id]
   end
 
   def create
@@ -30,7 +30,7 @@ class Api::V1::MarkersController < ApplicationController
        uploaded_file = ActionDispatch::Http::UploadedFile.new(:tempfile => tempfile, :filename => image_params[:filename], :original_filename => image_params[:filename])
        params[:marker][:image] =  uploaded_file
     end
-    
+
     @marker = Marker.new(params[:marker])
 
     respond_to do |format|
