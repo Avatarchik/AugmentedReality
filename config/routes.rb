@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   devise_for :users, path: :accounts
   root 'markers#index'
-  resources :markers, only: :index
+  resources :markers, only: [:index, :new, :create]
   resources :users, only: :index
   mount Sidekiq::Web, at: "/sidekiq"
 
