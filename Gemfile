@@ -23,6 +23,7 @@ gem 'rolify'
 gem 'gcm'
 gem 'figaro'
 gem 'puma'
+gem 'grape'
 
 group :development, :test do
   gem 'pry'
