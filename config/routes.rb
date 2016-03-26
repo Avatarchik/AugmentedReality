@@ -3,12 +3,13 @@ require 'api_constraints'
 
 Rails.application.routes.draw do
 
+  root 'markers#index'
   get 'users/index'
 
   devise_for :users, path: :accounts
-  root 'markers#index'
-  resources :users, only: :index
-  resources :markers, only: [:index, :new, :create]
+
+  resources :users, only: [:index, :destroy]
+  resources :markers, only: [:index, :new, :create, :destroy]
   mount Sidekiq::Web, at: "/sidekiq"
 
   namespace :api, defaults: { format: :json } do

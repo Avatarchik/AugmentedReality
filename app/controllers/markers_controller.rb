@@ -1,4 +1,6 @@
 class MarkersController < ApplicationController
+  before_action :authenticate_user!
+  
   def index
     @markers = Marker.all
   end
