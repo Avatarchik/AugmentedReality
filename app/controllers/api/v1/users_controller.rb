@@ -15,7 +15,7 @@ class Api::V1::UsersController < ApplicationController
     @user = User.create(name: name, email: email, password: password,
       password_confirmation: password_confirmation, reg_token: reg_token)
     if @user.errors.any?
-      render json: { errors: @user.errors }, status: 422
+      render json: { errors: @user.errors }, status: 201
     else
       render json: @user, status: 201, location: [:api, @user]
     end
