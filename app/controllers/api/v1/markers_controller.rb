@@ -1,9 +1,10 @@
 class Api::V1::MarkersController < ApplicationController
   respond_to :json
   skip_before_action :verify_authenticity_token
+  before_action :authenticate_with_token!, only: [:create]
 
   def index
-    @markers = Marker.all
+    @marker_users = MarkerUser.all
   end
 
   def show
@@ -11,6 +12,8 @@ class Api::V1::MarkersController < ApplicationController
   end
 
   def create
+    @current_user_api
+
     temp = params
     params = {
       :marker => {
@@ -32,17 +35,13 @@ class Api::V1::MarkersController < ApplicationController
     end
 
     @marker = Marker.new(params[:marker])
-
-    respond_to do |format|
-      if @marker.save
-        GentexdataWorker.perform_async(@marker.id)
-        format.html { redirect_to @marker, notice: 'Marker was successfully created.' }
-        format.json { render json: @marker, status: :created, location: @marker }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @marker.errors, status: :unprocessable_entity }
-      end
+    @marker.save
+    @marker_user = @current_user_api.marker_users.create(marker_id: @marker.id)
+    if @marker_user
+      GentexdataWorker.perform_async(@marker.id)
+      @marker_user
+    else
+      render json: { errors: "Create marker fail" }, status: 200
     end
   end
-
 end
