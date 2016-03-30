@@ -1,0 +1,21 @@
+<div class="site-content" >
+  <div class="entry">
+    <div class="entry-meta">
+      <h3>Send notification</h3>
+    </div>
+
+    <div class="entry-content">
+      <%= form_tag notifications_path do %>
+
+        <%= label_tag :title %>
+        <%= text_field_tag :title, params[:title] %>
+
+        <%= label_tag :body %>
+        <%= text_field_tag :body, params[:body] %>
+
+        <%= submit_tag "Send", class: "btn btn-large btn-primary" %>
+      <% end %>
+
+    </div>
+  </div>
+</div>

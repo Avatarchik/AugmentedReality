@@ -4,13 +4,12 @@ require 'api_constraints'
 Rails.application.routes.draw do
 
   root 'markers#index'
-  get 'users/index'
-
   devise_for :users, path: :accounts
+  mount Sidekiq::Web, at: "/sidekiq"
 
   resources :users, only: [:index, :destroy]
   resources :markers, only: [:index, :new, :create, :destroy]
-  mount Sidekiq::Web, at: "/sidekiq"
+  resources :notifications, only: [:index, :create]
 
   namespace :api, defaults: { format: :json } do
     scope module: :v1, constraints: ApiConstraints.new(version: 1, default: true) do
