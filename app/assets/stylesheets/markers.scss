@@ -55,9 +55,20 @@ footer {
 .entry{
   background: #fff;
   margin-bottom: 40px;
+  border: 1px solid #ddd;
 }
 
 .entry-meta {
   background: #f7f7f7;
-  padding: 40px 40px 20px 40px;
+  padding: 20px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+.entry-content {
+  padding: 20px;
+}
+
+#reg_token {
+  word-break: break-all;
 }
