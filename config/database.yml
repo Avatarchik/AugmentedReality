@@ -19,6 +19,8 @@ default: &default
 
 development:
   <<: *default
+  username: root
+  password: Hienbuix0
   database: AugmentedReality_development
 
 # Warning: The database defined as "test" will be erased and
@@ -49,6 +51,6 @@ test:
 #
 production:
   <<: *default
-  database: AugmentedReality_production
-  username: AugmentedReality
-  password: <%= ENV['AUGMENTEDREALITY_DATABASE_PASSWORD'] %>
+  database: AugmentedReality
+  username: root
+  password: Hienbuix0
