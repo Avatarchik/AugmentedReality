@@ -33,5 +33,6 @@ module AugmentedReality
     config.paths.add File.join('app', 'api'), glob: File.join('**', '*.rb')
     config.autoload_paths += Dir[Rails.root.join('app', 'api', '*')]
     config.active_record.raise_in_transactional_callbacks = true
+    config.secret_key_base = '9a533207d1e507adb5afecb415d621ea87718bb933da8a36c090efbb0e39d909cd9ea8c73926cac114805ce12987ed8442ed8ef2c353bcc235686b1d5f4b2e30'
   end
 end

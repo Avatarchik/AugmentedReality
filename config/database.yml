@@ -19,8 +19,6 @@ default: &default
 
 development:
   <<: *default
-  username: root
-  password: Hienbuix0
   database: AugmentedReality_development
 
 # Warning: The database defined as "test" will be erased and
