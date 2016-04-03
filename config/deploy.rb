@@ -1,5 +1,5 @@
 # Change these
-server '188.166.213.107', port: 3000, roles: [:web, :app, :db], primary: true
+server '188.166.213.107', roles: [:web, :app, :db], primary: true
 
 set :repo_url,        'git@github.com:hienbx94/AugmentedReality.git'
 set :application,     'AugmentedReality'
