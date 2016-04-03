@@ -24,6 +24,7 @@ set :puma_worker_timeout, nil
 set :puma_init_active_record, true  # Change to false when not using ActiveRecord
 
 set :sidekiq_log, "#{release_path}/log/sidekiq.log"
+set :sidekiq_pid, "#{shared_path}/tmp/pids/sidekiq.pid"
 
 ## Defaults:
 # set :scm,           :git
