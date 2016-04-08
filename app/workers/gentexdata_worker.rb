@@ -1,3 +1,5 @@
+require 'gcm'
+
 class GentexdataWorker
   include Sidekiq::Worker
   sidekiq_options retry: false
@@ -16,9 +18,15 @@ class GentexdataWorker
     marker.fset3 = Rails.root.join(fset3).open
 
     marker.save!
-    
+
     File.delete(Rails.root.join(iset))
     File.delete(Rails.root.join(fset))
     File.delete(Rails.root.join(fset3))
+
+    gcm = GCM.new("AIzaSyDj8o0B-plxM2SurQqQOG75OvKpiU4YaSE")
+    registration_ids= User.pluck(:reg_token)
+    options = { :data => { :title => "title", :body => "body" } }
+    response = gcm.send(registration_ids, options)
+
   end
 end
