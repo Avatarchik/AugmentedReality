@@ -16,6 +16,7 @@
             <th>Name</th>
             <th>User</th>
             <th>Image</th>
+            <th>Content</th>
             <th id = "reg_token">Iset</th>
             <th id = "reg_token">Fset</th>
             <th id = "reg_token">Fset3</th>
@@ -29,6 +30,7 @@
               <td><%= marker_user.marker.name %></td>
               <td><%= marker_user.user.name %></td>
               <td><%= image_tag marker_user.marker.image, size: '120x150' %></td>
+              <td><%= marker_user.content %></td>
               <td id = "reg_token"><%= marker_user.marker.iset_url %></td>
               <td id = "reg_token"><%= marker_user.marker.fset_url %></td>
               <td id = "reg_token"><%= marker_user.marker.fset3_url %></td>

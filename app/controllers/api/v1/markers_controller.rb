@@ -36,7 +36,7 @@ class Api::V1::MarkersController < ApplicationController
 
     @marker = Marker.new(params[:marker])
     @marker.save
-    @marker_user = @current_user_api.marker_users.create(marker_id: @marker.id)
+    @marker_user = @current_user_api.marker_users.create(marker_id: @marker.id, content: temp["content"])
     if @marker_user
       GentexdataWorker.perform_async(@marker.id)
       @marker_user
