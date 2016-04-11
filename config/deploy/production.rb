@@ -59,3 +59,4 @@
 #     auth_methods: %w(publickey password)
 #     # password: 'please use keys'
 #   }
+set :sidekiq_log, File.join(shared_path, 'tmp', 'sidekiq.log')
