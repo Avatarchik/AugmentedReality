@@ -23,6 +23,7 @@ gem 'gcm'
 gem 'figaro'
 gem 'puma'
 gem 'capistrano-sidekiq', github: 'seuros/capistrano-sidekiq'
+gem 'rails_admin'
 
 group :development, :test do
   gem 'pry'

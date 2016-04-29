@@ -3,6 +3,7 @@ require 'api_constraints'
 
 Rails.application.routes.draw do
 
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   root 'markers#index'
   devise_for :users, path: :accounts
   mount Sidekiq::Web, at: "/sidekiq"
