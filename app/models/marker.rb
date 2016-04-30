@@ -1,6 +1,6 @@
 class Marker < ActiveRecord::Base
   resourcify
-  rolify
+
   has_many :marker_users
 
   mount_uploader :image, AttachmentUploader
