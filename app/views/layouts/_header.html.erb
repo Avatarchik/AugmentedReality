@@ -15,6 +15,14 @@
     <div class="collapse navbar-collapse navbar-right" id="navbar-menu">
       <ul class="nav navbar-nav" data-navbar="static">
         <li class="">
+          <%= link_to "Admin Site", "/admin" %>
+        </li>
+
+        <li class="">
+          <%= link_to "Sidekiq", sidekiq_web_path %>
+        </li>
+
+        <li class="">
           <%= link_to "Notification", notifications_path %>
         </li>
         <li class="">
