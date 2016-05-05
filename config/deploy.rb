@@ -1,5 +1,5 @@
 # Change these
-server '128.199.66.46', roles: [:web, :app, :db], primary: true
+server '128.199.195.161', roles: [:web, :app, :db], primary: true
 
 set :repo_url,        'git@github.com:hienbx94/AugmentedReality.git'
 set :application,     'AugmentedReality'
