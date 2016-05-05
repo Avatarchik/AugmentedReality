@@ -51,4 +51,3 @@ production:
   <<: *default
   database: AugmentedReality
   username: root
-  password: Hienbuix0
