@@ -111,48 +111,6 @@ int genTexData( char *file)
     if (!sep || (strcmp(sep, ".jpeg") && strcmp(sep, ".jpg") && strcmp(sep, ".jpe") && strcmp(sep, ".JPEG") && strcmp(sep, ".JPE") && strcmp(sep, ".JPG"))) {
         ARLOGe("Error: input file must be a JPEG image (with suffix .jpeg/.jpg/.jpe). Exiting.\n");
     }
-    if (background) {
-#if HAVE_DAEMON_FUNC
-        if (filename[0] != '/' || logfile[0] != '/' || exitcodefile[0] != '/') {
-            ARLOGe("Error: -background flag requires full pathname of files (input, -log or -exitcode) to be specified. Exiting.\n");
-            EXIT(E_BAD_PARAMETER);
-        }
-        if (tracking_extraction_level == -1 && (sd_thresh == -1.0 || min_thresh == -1.0 || max_thresh == -1.0)) {
-            ARLOGe("Error: -background flag requires -level or -sd_thresh, -min_thresh and -max_thresh -to be set. Exiting.\n");
-            EXIT(E_BAD_PARAMETER);
-        }
-        if (initialization_extraction_level == -1 && (featureDensity == -1)) {
-            ARLOGe("Error: -background flag requires -leveli or -surf_thresh to be set. Exiting.\n");
-            EXIT(E_BAD_PARAMETER);
-        }
-        if (dpi == -1.0) {
-            ARLOGe("Error: -background flag requires -dpi to be set. Exiting.\n");
-            EXIT(E_BAD_PARAMETER);
-        }
-        if (dpiMin != -1.0f && (dpiMin <= 0.0f || dpiMin > dpi)) {
-            ARLOGe("Error: -min_dpi must be greater than 0 and less than or equal to -dpi. Exiting.n\n");
-            EXIT(E_BAD_PARAMETER);
-        }
-        if (dpiMax != -1.0f && (dpiMax < dpiMin || dpiMax > dpi)) {
-            ARLOGe("Error: -max_dpi must be greater than or equal to -min_dpi and less than or equal to -dpi. Exiting.n\n");
-            EXIT(E_BAD_PARAMETER);
-        }
-#else
-        ARLOGe("Error: -background flag not supported on this operating system. Exiting.\n");
-        exit(E_BACKGROUND_OPERATION_UNSUPPORTED);
-#endif
-    }
-
-    if (background) {
-#if HAVE_DAEMON_FUNC
-        // Daemonize.
-        if (daemon(0, 0) == -1) {
-            perror("Unable to detach from controlling terminal");
-            EXIT(E_UNABLE_TO_DETACH_FROM_CONTROLLING_TERMINAL);
-        }
-        // At this point, stdin, stdout and stderr point to /dev/null.
-#endif
-    }
 
     if (logfile[0]) {
         if (!freopen(logfile, "a", stdout) ||
