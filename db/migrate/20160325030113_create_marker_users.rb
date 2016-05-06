@@ -3,7 +3,7 @@ class CreateMarkerUsers < ActiveRecord::Migration
     create_table :marker_users do |t|
       t.references :user, index: true, foreign_key: true
       t.references :marker, index: true, foreign_key: true
-      t.string :content
+      t.text :content
       t.boolean :available, :default => false
 
       t.timestamps null: false
