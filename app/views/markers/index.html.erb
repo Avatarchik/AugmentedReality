@@ -17,6 +17,7 @@
             <th>User</th>
             <th>Image</th>
             <th>Content</th>
+            <th>Available</th>
             <th>Created at</th>
             <th>Delete</th>
           </tr>
@@ -29,6 +30,7 @@
               <td><%= marker_user.user.name %></td>
               <td><%= image_tag marker_user.marker.image, size: '150x150' %></td>
               <td><%= marker_user.content %></td>
+              <td><%= marker_user.available %></td>
               <td><%= marker_user.created_at %></td>
               <td><%= link_to "Delete", marker_path(marker_user), method: :delete, class: "btn btn-primary" %></td>
             </tr>

@@ -13,8 +13,8 @@ class MarkersController < ApplicationController
     @marker = Marker.new(marker_params)
 
     if @marker.save
-      current_user.marker_users.create(marker_id: @marker.id, content: params["content"])
-      GentexdataWorker.perform_async(@marker.id)
+      marker_user = current_user.marker_users.create(marker_id: @marker.id, content: params["content"])
+      GentexdataWorker.perform_async(@marker.id, marker_user.id)
       redirect_to markers_path, notice: "The marker #{@marker.name} has been created."
     else
       render "new"

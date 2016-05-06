@@ -4,7 +4,7 @@ class GentexdataWorker
   include Sidekiq::Worker
   sidekiq_options retry: false
 
-  def perform(marker_id)
+  def perform(marker_id, marker_user_id)
     marker = Marker.find_by id: marker_id
     path_image = "public" + marker.image_url
     MarkersHelper.genTexData(path_image)
@@ -16,7 +16,9 @@ class GentexdataWorker
     marker.iset = Rails.root.join(iset).open
     marker.fset = Rails.root.join(fset).open
     marker.fset3 = Rails.root.join(fset3).open
-
+    marker_user = MarkerUser.find_by id: marker_user_id
+    marker_user.available = true
+    marker_user.save!
     marker.save!
 
     File.delete(Rails.root.join(iset))
