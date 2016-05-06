@@ -11,6 +11,16 @@ class Api::V1::MarkersController < ApplicationController
     @marker = Marker.find_by id: params[:id]
   end
 
+
+  def destroy
+    @marker = Marker.find_by id: params[:id]
+    @marker_user = MarkerUser.find_by marker_id: params[:id]
+
+    @marker_user.destroy
+    @marker.destroy
+    render json: { success: "Marker deleted" }, status: 200
+  end
+
   def create
     @current_user_api
 
@@ -44,4 +54,5 @@ class Api::V1::MarkersController < ApplicationController
       render json: { errors: "Create marker fail" }, status: 200
     end
   end
+
 end

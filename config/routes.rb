@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     scope module: :v1, constraints: ApiConstraints.new(version: 1, default: true) do
       resources :users, only: [:show, :create]
-      resources :markers, only: [:show, :index, :create]
+      resources :markers, only: [:show, :index, :create, :destroy]
       resources :gcms, only: :create
       resources :sessions
     end
