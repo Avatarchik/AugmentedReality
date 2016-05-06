@@ -17,29 +17,24 @@
             <th>User</th>
             <th>Image</th>
             <th>Content</th>
-            <th id = "reg_token">Iset</th>
-            <th id = "reg_token">Fset</th>
-            <th id = "reg_token">Fset3</th>
+            <th>Created at</th>
             <th>Delete</th>
           </tr>
         </thead>
         <tbody>
           <% @marker_users.each do |marker_user| %>
             <tr>
-              <td><%= marker_user.marker.id %></td>
-              <td><%= marker_user.marker.name %></td>
+              <td><%= link_to marker_user.marker.id, marker_path(marker_user.marker) %></td>
+              <td><%= link_to marker_user.marker.name, marker_path(marker_user.marker) %></td>
               <td><%= marker_user.user.name %></td>
-              <td><%= image_tag marker_user.marker.image, size: '120x150' %></td>
+              <td><%= image_tag marker_user.marker.image, size: '150x150' %></td>
               <td><%= marker_user.content %></td>
-              <td id = "reg_token"><%= marker_user.marker.iset_url %></td>
-              <td id = "reg_token"><%= marker_user.marker.fset_url %></td>
-              <td id = "reg_token"><%= marker_user.marker.fset3_url %></td>
+              <td><%= marker_user.created_at %></td>
               <td><%= link_to "Delete", marker_path(marker_user), method: :delete, class: "btn btn-primary" %></td>
             </tr>
           <% end %>
         </tbody>
       </table>
-
     </div>
   </div>
 </div>

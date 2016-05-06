@@ -1,2 +1,37 @@
-<h1>Markers#show</h1>
-<p>Find me in app/views/markers/show.html.erb</p>
+<div class="site-content" >
+  <div class="entry">
+    <div class="entry-meta">
+      <h3>Information marker</h3>
+    </div>
+
+    <div class="entry-content">
+      <table class="table table-bordered">
+        <tr>
+          <th>ID</th>
+          <td><%= @marker.id %></td>
+        </tr>
+        <tr>
+          <th>Marker name</th>
+          <td><%= @marker.name %></td>
+        </tr>
+        <tr>
+          <th>Image set file</th>
+          <td><%= @marker.iset %></td>
+        </tr>
+        <tr>
+          <th>Features set file</th>
+          <td><%= @marker.fset %></td>
+        </tr>
+        <tr>
+          <th>Features3 set file</th>
+          <td><%= @marker.fset3 %></td>
+        </tr>
+        <tr>
+          <th>Image</th>
+          <td><%= image_tag @marker.image, size: '150x150' %></td>
+        </tr>
+      </table>
+      </ul>
+    </div>
+  </div>
+</div>

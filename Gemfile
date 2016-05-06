@@ -28,7 +28,7 @@ gem 'rails_admin'
 group :development, :test do
   gem 'pry'
   gem 'web-console', '~> 2.0'
-  gem 'spring'
+  gem 'spring', '1.4.3'
   gem 'capistrano',         require: false
   gem 'capistrano-rvm',     require: false
   gem 'capistrano-rails',   require: false

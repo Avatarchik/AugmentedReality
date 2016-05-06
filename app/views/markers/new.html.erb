@@ -1,10 +1,24 @@
-<div class="well">
-  <%= form_for @marker, html: { multipart: true } do |f| %>
-    <%= f.label :name %>
-    <%= f.text_field :name, class: 'form-control' %>
-    <%= f.label :image %>
-    <%= f.file_field :image %>
-    <br>
-    <%= f.submit "Save", class: "btn btn-primary" %>
-  <% end %>
+
+
+<div class="site-content" >
+  <div class="entry">
+    <div class="entry-meta">
+      <h3>New marker</h3>
+    </div>
+
+    <div class="entry-content">
+      <%= form_for @marker, html: { multipart: true } do |f| %>
+        <%= f.label 'Marker name' %>
+        <%= f.text_field :name, class: 'form-control' %>
+        <br>
+        <%= f.label 'Content' %>
+        <%= text_field_tag 'content', nil, class: 'form-control' %>
+        <br>
+        <%= f.label :image %>
+        <%= f.file_field :image %>
+        <br>
+        <%= f.submit "Save", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
 </div>

@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   mount Sidekiq::Web, at: "/sidekiq"
 
   resources :users, only: [:index, :destroy]
-  resources :markers, only: [:index, :new, :create, :destroy]
+  resources :markers, only: [:index, :show, :new, :create, :destroy]
   resources :notifications, only: [:index, :create]
 
   namespace :api, defaults: { format: :json } do
