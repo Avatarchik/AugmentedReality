@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160429144953) do
+ActiveRecord::Schema.define(version: 20160325041519) do
 
   create_table "marker_users", force: :cascade do |t|
     t.integer  "user_id",    limit: 4
@@ -32,11 +32,6 @@ ActiveRecord::Schema.define(version: 20160429144953) do
     t.string   "fset3",      limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
-  end
-
-  create_table "markers_roles", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "roles", force: :cascade do |t|
