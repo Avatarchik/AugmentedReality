@@ -48,7 +48,7 @@ class Api::V1::MarkersController < ApplicationController
     @marker.save
     @marker_user = @current_user_api.marker_users.create(marker_id: @marker.id, content: temp["content"])
     if @marker_user
-      GentexdataWorker.perform_async(@marker.id)
+      GentexdataWorker.perform_async(@marker.id, @marker_user.id)
       @marker_user
     else
       render json: { errors: "Create marker fail" }, status: 200

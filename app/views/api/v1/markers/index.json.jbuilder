@@ -7,4 +7,5 @@ json.markers @marker_users do |marker_user|
   json.created_at marker_user.marker.created_at.strftime('%d-%m-%Y')
   json.user_name marker_user.user.name
   json.content marker_user.content
+  json.available marker_user.available
 end
