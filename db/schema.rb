@@ -16,10 +16,10 @@ ActiveRecord::Schema.define(version: 20160325041519) do
   create_table "marker_users", force: :cascade do |t|
     t.integer  "user_id",    limit: 4
     t.integer  "marker_id",  limit: 4
-    t.string   "content",    limit: 255
-    t.boolean  "available",  limit: 1,   default: false
-    t.datetime "created_at",                             null: false
-    t.datetime "updated_at",                             null: false
+    t.text     "content",    limit: 65535
+    t.boolean  "available",  limit: 1,     default: false
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
   end
 
   add_index "marker_users", ["marker_id"], name: "index_marker_users_on_marker_id", using: :btree
